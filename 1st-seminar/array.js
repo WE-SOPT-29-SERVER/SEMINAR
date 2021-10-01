@@ -1,6 +1,6 @@
-/**
- * 1. 배열 선언하기
- */
+/* -------------------- */
+/*   1. 배열 실습    */
+/* -------------------- */
 
 let arr1 = [];
 console.log(arr1);
@@ -14,9 +14,10 @@ let arr3 = ["최영훈", 1, 2, 3, null, { name: "yh", age: 26 }];
 console.log(arr3);
 console.log(typeof arr3);
 
-/**
- * 2. array prototype 메서드
- */
+/* -------------------------- */
+/*   2. 배열 prototype 메서드    */
+/* -------------------------- */
+
 console.log("**** Array 기본 함수들을 알아보자 ****");
 let arr = [1, 2, 3, 4];
 
@@ -94,9 +95,9 @@ let sum = number.reduce((previousValue, currentValue) => {
 
 console.log("sum = ", sum);
 
-/**
- * 3. 배열 순회
- */
+/* -------------------- */
+/*   3. 배열 순회    */
+/* -------------------- */
 
 let serverPart = [
   "강한희",
