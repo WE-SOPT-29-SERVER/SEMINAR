@@ -6,7 +6,7 @@ const sopt = {
   name: "WE SOPT",
   slogan: "우리가 SOPT입니다",
   part: ["plan", "design", "android", "iOS", "server", "web"],
-  number: 180,
+  number: 199,
   printName: function () {
     console.log("name : ", this.name);
   },
