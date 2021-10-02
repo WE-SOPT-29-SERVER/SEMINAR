@@ -21,6 +21,14 @@ console.log(addStr("안녕", "하세요"));
 /*     - 화살표 함수 -     */
 /* -------------------- */
 
+const add = (x, y) => {
+  return x + y;
+};
+
+const add = x => {
+  return x;
+};
+
 // 로직이 한줄일때 return 문 생략 가능
 const add = (x, y) => x + y;
 
