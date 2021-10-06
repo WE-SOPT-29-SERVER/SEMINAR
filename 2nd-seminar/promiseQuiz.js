@@ -36,7 +36,5 @@ const getOB = members => {
   });
 };
 
-getOnline().then().then();
-
-// // getOnline(members).then(getOB).then(console.log);
-// getYB(members).then(getOffline).then(console.log);
+getOnline(members).then(getOB).then(console.log);
+getYB(members).then(getOffline).then(console.log);
