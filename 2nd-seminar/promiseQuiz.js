@@ -36,5 +36,15 @@ const getOB = members => {
   });
 };
 
-getOnline(members).then(getOB).then(console.log);
+getOnline(members)
+  .then(x => getOB(x))
+  .then(console.log);
 getYB(members).then(getOffline).then(console.log);
+
+const asyncFunc = async members => {
+  const onlineMembers = await getOnline(members);
+  const onlineObMembers = await getOB(onlineMembers);
+  console.log(onlineObMembers);
+};
+
+asyncFunc(members);

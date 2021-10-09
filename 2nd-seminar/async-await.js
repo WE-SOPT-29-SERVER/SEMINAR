@@ -31,6 +31,7 @@ const promiseMain = () => {
 const asyncMain = async () => {
   let result = await asyncFunc1("Hello");
   console.log(result);
+
   result = await asyncFunc2("world");
   console.log(result);
 };

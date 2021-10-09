@@ -101,4 +101,8 @@ ramenRecipe()
   .then(progress => console.log(progress));
 
 // 더 간결하게는 이렇게 해도 다 똑같은 실행 방식
-ramenRecipe().then(boilWater).then(putTheRamenAndSoupPowder).then(delayThreeMinutes).then(console.log);
+ramenRecipe()
+  .then(boilWater)
+  .then(putTheRamenAndSoupPowder)
+  .then(delayThreeMinutes)
+  .then(console.log);

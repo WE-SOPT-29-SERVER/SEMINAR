@@ -12,4 +12,17 @@ const object = {
     //...
   },
 };
-module.exports = object;
+
+const add = () => {};
+const subtract = () => {};
+const multiply = () => {};
+const divide = () => {};
+
+const calculator = {
+  add,
+  subtract,
+  multiply,
+  divide,
+};
+
+module.exports = calculator;
