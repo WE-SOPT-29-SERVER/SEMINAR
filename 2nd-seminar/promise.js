@@ -2,37 +2,37 @@
 // /*   1. Promise 선언    */
 // /* ------------------- */
 
-// const promise = new Promise(function (resolve, reject) {
-//   // logic
-// });
+const promise = new Promise(function (resolve, reject) {
+  // logic
+});
 
-// // 화살표 함수로도 가능
-// const promise = new Promise(function (resolve, reject) {
-//   // logic
-// });
+// 화살표 함수로도 가능
+const promise = new Promise(function (resolve, reject) {
+  // logic
+});
 
-// /* ----------------------------- */
-// /*   2. Fulfilled && Rejected    */
-// /* ----------------------------- */
+/* ----------------------------- */
+/*   2. Fulfilled && Rejected    */
+/* ----------------------------- */
 
-// const promise = new Promise(function (resolve, reject) {
-//   const age = 25;
-//   if (age > 20) {
-//     resolve(age);
-//   } else {
-//     reject(new Error("나이가 너무 어립니다"));
-//   }
-// });
+const promise = new Promise(function (resolve, reject) {
+  const age = 25;
+  if (age > 20) {
+    resolve(age);
+  } else {
+    reject(new Error("나이가 너무 어립니다"));
+  }
+});
 
-// promise
-//   // Fulfilled일 시 값 : resolve()안에 있으며, .then()으로 전달
-//   .then(resolvedData => {
-//     console.log(resolvedData);
-//   })
-//   // Rejected일 시 값 : reject()안에 있으며, .catch()로 전달
-//   .catch(err => {
-//     console.log(err);
-//   });
+promise
+  // Fulfilled일 시 값 : resolve()안에 있으며, .then()으로 전달
+  .then(resolvedData => {
+    console.log(resolvedData);
+  })
+  // Rejected일 시 값 : reject()안에 있으며, .catch()로 전달
+  .catch(err => {
+    console.log(err);
+  });
 
 /* ------------------------- */
 /*   3. Promise Chaining     */
@@ -101,8 +101,4 @@ ramenRecipe()
   .then(progress => console.log(progress));
 
 // 더 간결하게는 이렇게 해도 다 똑같은 실행 방식
-ramenRecipe()
-  .then(boilWater)
-  .then(putTheRamenAndSoupPowder)
-  .then(delayThreeMinutes)
-  .then(console.log);
+ramenRecipe().then(boilWater).then(putTheRamenAndSoupPowder).then(delayThreeMinutes).then(console.log);
