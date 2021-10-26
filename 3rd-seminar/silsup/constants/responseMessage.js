@@ -15,10 +15,4 @@ module.exports = {
 
     // 프로필 조회
     READ_PROFILE_SUCCESS: "프로필 조회 성공",
-
-    // 유저 수정
-    USER_UPDATE_SUCCESS: "유저 정보 수정 성공",
-
-    // 유저 삭제 성공
-    USER_DELETE_SUCCESS: "유저 삭제 성공",
 };
