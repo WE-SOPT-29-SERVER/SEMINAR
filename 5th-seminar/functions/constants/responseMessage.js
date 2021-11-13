@@ -32,4 +32,9 @@ module.exports = {
 
   // 서버 내 오류
   INTERNAL_SERVER_ERROR: '서버 내 오류',
+
+  // 토큰
+  TOKEN_EXPIRED: '토큰이 만료되었습니다.',
+  TOKEN_INVALID: '토큰이 유효하지 않습니다.',
+  TOKEN_EMPTY: '토큰이 없습니다.',
 };

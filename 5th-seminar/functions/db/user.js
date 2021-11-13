@@ -26,6 +26,30 @@ const getUserById = async (client, userId) => {
   return convertSnakeToCamel.keysToCamel(rows[0]);
 };
 
+const getUserByIdFirebase = async (client, idFirebase) => {
+  const { rows } = await client.query(
+    `
+    SELECT * FROM "user" u
+    WHERE id_firebase = $1
+      AND is_deleted = FALSE
+    `,
+    [idFirebase],
+  );
+  return convertSnakeToCamel.keysToCamel(rows[0]);
+};
+
+const getUserByEmail = async (client, email) => {
+  const { rows } = await client.query(
+    `
+    SELECT * FROM "user" u
+    WHERE email = $1
+      AND is_deleted = FALSE
+    `,
+    [email],
+  );
+  return convertSnakeToCamel.keysToCamel(rows[0]);
+};
+
 const updateUser = async (client, username, phone, userId) => {
   const { rows: existingRows } = await client.query(
     `
@@ -66,4 +90,19 @@ const deleteUser = async (client, userId) => {
   return convertSnakeToCamel.keysToCamel(rows[0]);
 };
 
-module.exports = { getAllUsers, getUserById, updateUser, deleteUser };
+const addUser = async (client, email, username, phone, idFirebase) => {
+  const { rows } = await client.query(
+    `
+    INSERT INTO mockup_user
+    (email, username, phone id_firebase)
+    VALUES
+    ($1, $2, $3)
+    RETURNING *
+    `,
+
+    [email, username, phone, idFirebase],
+  );
+  return convertSnakeToCamel.keysToCamel(rows[0]);
+};
+
+module.exports = { getAllUsers, getUserById, getUserByIdFirebase, getUserByEmail, updateUser, deleteUser, addUser };
