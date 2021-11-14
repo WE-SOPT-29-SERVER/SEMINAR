@@ -14,8 +14,8 @@ module.exports = async (req, res) => {
 
   try {
     client = await db.connect(req);
+
     const deletedUser = await userDB.deleteUser(client, userId);
-    if (!deletedUser) return res.status(statusCode.NOT_FOUND).send(util.fail(statusCode.NOT_FOUND, responseMessage.NO_USER));
 
     res.status(statusCode.OK).send(util.success(statusCode.OK, responseMessage.DELETE_ONE_USER_SUCCESS, deletedUser));
   } catch (error) {

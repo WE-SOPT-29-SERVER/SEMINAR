@@ -77,4 +77,28 @@ const deletePost = async (client, postId) => {
   return convertSnakeToCamel.keysToCamel(rows[0]);
 };
 
-module.exports = { getAllPosts, getPostById, addPost, updatePost, deletePost };
+const getPostsByUserId = async (client, userId) => {
+  const { rows } = await client.query(
+    `
+    SELECT * FROM post
+    WHERE user_id = $1
+      AND is_deleted = FALSE
+    `,
+    [userId],
+  );
+  return convertSnakeToCamel.keysToCamel(rows);
+};
+
+const getPostsByUserIds = async (client, userIds) => {
+  if (userIds.length < 1) return [];
+  const { rows } = await client.query(
+    `
+    SELECT * FROM post
+    WHERE user_id IN (${userIds.join()})
+      AND is_deleted = FALSE
+    `,
+  );
+  return convertSnakeToCamel.keysToCamel(rows);
+};
+
+module.exports = { getAllPosts, getPostById, addPost, updatePost, deletePost, getPostsByUserId, getPostsByUserIds };

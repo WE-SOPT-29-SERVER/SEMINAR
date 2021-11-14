@@ -5,7 +5,7 @@ const util = require('../lib/util');
 const statusCode = require('../constants/statusCode');
 const responseMessage = require('../constants/responseMessage');
 const { userDB } = require('../db');
-const { TOKEN_EXPIRED, TOKEN_INVALID } = require('../db/jwt');
+const { TOKEN_INVALID, TOKEN_EXPIRED } = require('../constants/jwt');
 
 const checkUser = async (req, res, next) => {
   let client;
@@ -28,7 +28,7 @@ const checkUser = async (req, res, next) => {
     console.log(decodedToken);
     if (!userId) return res.status(statusCode.UNAUTHORIZED).send(util.fail(statusCode.UNAUTHORIZED, responseMessage.TOKEN_INVALID));
 
-    user = await userDB.get(client, userId);
+    user = await userDB.getUserById(client, userId);
 
     if (!user) return res.status(statusCode.UNAUTHORIZED).send(util.fail(statusCode.UNAUTHORIZED, responseMessage.NO_USER));
 
