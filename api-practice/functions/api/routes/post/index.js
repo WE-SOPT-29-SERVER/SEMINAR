@@ -4,6 +4,7 @@ const router = express.Router();
 
 const uploadImage = require('../../../middlewares/uploadImage');
 
+router.get('/list/category/:categoryId', require('./postListGET'));
 router.get('/list', require('./postListGET'));
 
 router.post('/', uploadImage, require('./postPOST'));

@@ -23,6 +23,17 @@ const getPostById = async (client, postId) => {
   return convertSnakeToCamel.keysToCamel(rows[0]);
 };
 
+const getPostsByIds = async (client, postIds) => {
+  const { rows } = await client.query(
+    `
+    SELECT * FROM post p
+    WHERE id IN (${postIds.join()})
+      AND is_deleted = FALSE
+    `,
+  );
+  return convertSnakeToCamel.keysToCamel(rows);
+};
+
 const addPost = async (client, userId, title, content, imageUrls) => {
   const { rows } = await client.query(
     `
@@ -101,4 +112,4 @@ const getPostsByUserIds = async (client, userIds) => {
   return convertSnakeToCamel.keysToCamel(rows);
 };
 
-module.exports = { getAllPosts, getPostById, addPost, updatePost, deletePost, getPostsByUserId, getPostsByUserIds };
+module.exports = { getAllPosts, getPostById, getPostsByIds, addPost, updatePost, deletePost, getPostsByUserId, getPostsByUserIds };

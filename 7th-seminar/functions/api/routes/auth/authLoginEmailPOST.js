@@ -43,6 +43,7 @@ module.exports = async (req, res) => {
     const {
       user: { uid: idFirebase },
     } = userFirebase;
+    // const idFirebase = userFirebase.user.uid; 랑 같음
 
     const user = await userDB.getUserByIdFirebase(client, idFirebase);
 
