@@ -10,4 +10,6 @@ router.use('/like', require('./like'));
 
 router.use('/post-category', require('./postCategory'));
 
+router.use('/comment', require('./comment'));
+
 module.exports = router;

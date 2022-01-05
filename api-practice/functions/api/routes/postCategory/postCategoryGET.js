@@ -36,8 +36,9 @@ module.exports = async (req, res) => {
 
     for (let i = 0; i < posts.length; i++) {
       posts[i].postCategories = _.filter(rPPCsByPostIds, (o) => o.postId === posts[i].id).map((o) => o.postCategory);
-      posts[i].likeCount = _.filter(likes, (o) => o.likeItemId === posts[i].id).length;
-      posts[i].didILike = _.find(likes, (o) => o.userId === req.user.id) ? true : false;
+      posts[i].likes = _.filter(likes, (o) => o.likeItemId === posts[i].id);
+      posts[i].likeCount = posts[i].likes.length;
+      posts[i].didILike = _.find(posts[i].likes, (o) => o.userId === req.user.id) ? true : false;
     }
 
     const data = {

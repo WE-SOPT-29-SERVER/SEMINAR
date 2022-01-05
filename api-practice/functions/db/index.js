@@ -4,4 +4,5 @@ module.exports = {
   postCategoryDB: require('./postCategory'),
   relationPostPostCategoryDB: require('./relationPostPostCategory'),
   likeDB: require('./like'),
+  commentDB: require('./comment'),
 };

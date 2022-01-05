@@ -41,4 +41,5 @@ module.exports = {
 
   // 인증
   NO_AUTH_HEADER: 'Authorization 헤더가 없습니다.',
+  NOT_ALLOWED: '권한이 없습니다',
 };
